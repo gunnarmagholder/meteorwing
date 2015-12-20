@@ -1,0 +1,64 @@
+<head>
+  <title>xwing - Cardbrowser</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">XWing-Cards</a>
+            <p class="navbar-text navbar-right">
+                {{> loginButtons align="right"}}
+            </p>
+        </div> <!-- / nav container -->
+    </nav>
+    <div class="container top-margin">
+        <div class="row">
+            <div class="lead well">
+                    <h1>X-Wing Card Browser</h1>
+                    <p>Dieses private Projekt von zwei X-Wing Fans soll euch
+                        (den anderen Fans) ein Forum geben, um Karten aus
+                        unserem liebsten Tabletop zu betrachtenm, zu diskutieren
+                        und zur nächsten Killerliste zusammenzustellen.</p>
+            </div>
+        </div> <!-- hier ist das Ende der Überschriften-Ebene -->
+        <div class="row">
+            <h3>Hier findet ihr die aktuellen Lieblingspiloten der Community.</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4" >
+                <h3 data-fraction="imps">Imperiale</h3>
+                <table class="pilot-table">
+                {{#each imps}}
+                  {{> cards}}
+                {{/each}}
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3 data-fraction="rebels">Rebellen</h3>
+                <table class="pilot-table">
+                {{#each rebels}}
+                  {{> cards}}
+                {{/each}} 
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3 data-fraction="scavi">Abschaum</h3>
+                <table class="pilot-table">
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body> 
+
+<template name="cards">
+
+            <tr>
+                <td><button class="js-open-popup" data-image="http://localhost:3000/{{imageFile}}">Bild</button></td>
+                <td><a href="#" class="like" data-cardName="{{cardName}}">Like</a></td>
+                <td>{{cardName}}</td>
+                <td>{{likes}}</td>
+            </tr>
+
+</template>
+
